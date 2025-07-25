@@ -19,6 +19,15 @@
             </li>
         </ul>
     </div>
+    <svg style="display:none;">
+        <symbol id="icon-eye" viewBox="0 0 18 18">
+            <path d="M1 9s3.5-5 8-5 8 5 8 5-3.5 5-8 5-8-5-8-5z"/>
+            <circle cx="9" cy="9" r="2.5"/>
+        </symbol>
+        <symbol id="icon-heart" viewBox="0 0 18 18">
+            <path d="M16.5 3.5a4.5 4.5 0 0 0-6.36 0L9 4.64l-1.14-1.14A4.5 4.5 0 0 0 1.5 9c0 2.5 2 4.5 4.5 4.5h6c2.5 0 4.5-2 4.5-4.5a4.5 4.5 0 0 0-1.5-3.5z"/>
+        </symbol>
+    </svg>
 </nav>
 <div class="container mt-4">
     @yield('content')

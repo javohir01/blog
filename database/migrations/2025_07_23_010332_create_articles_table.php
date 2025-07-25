@@ -11,8 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('articles', function (Blueprint $table) {
+          Schema::create('articles', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->text('body');
+            $table->integer('user_id');
+            $table->string('image')->nullable();
+            $table->string('status')->nullable(); 
+            $table->unsignedInteger('likes')->default(0);
+            $table->unsignedInteger('views')->default(0);
+            $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });
     }

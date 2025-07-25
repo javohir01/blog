@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->integer('article_id');
             $table->integer('user_id');
-            $table->text('content');
-            $table->string('status')->default('pending');
+            $table->string('subject');
+            $table->longText('body');
             $table->timestamps();
         });
     }

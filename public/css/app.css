@@ -1,0 +1,69 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+.navbar-nav .nav-item.active .nav-link {
+    border-bottom: 2px solid #007bff; /* Ko'k rangli chiziq */
+    color: #007bff !important;        /* Ixtiyoriy: matnni ham ko'k qilish */
+}
+body { background-color: #f0f2f5; }
+.navbar { background-color: #fff; }
+.card { border: none; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.card-img-top { border-top-left-radius: 10px; border-top-right-radius: 10px; }
+.badge { margin-right: 5px; }
+.text-muted svg { margin-right: 5px; }
+.navbar-nav{display:flex; justify-content:end; width:100%}
+.intro{background: #e8ecef}
+.like-btn.liked svg {
+    stroke: #e74c3c;
+    fill: #e74c3c;
+}
+.like-btn.liked .like-count {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.like-btn .bi-heart {
+    color: #888;
+}
+.like-btn.liked .bi-heart,
+.like-btn .bi-heart-fill {
+    color: #e74c3c;
+}
+/* .page-link {
+    font-size: 1rem;
+    padding: 0.5rem 0.9rem;
+    line-height: 1.25;
+}
+.page-item .page-link svg {
+    width: 1em !important;
+    height: 1em !important;
+    vertical-align: middle;
+} */
+
+.list-group{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 7px;
+}
+.list-group-item{
+    background-color: #6c757d;
+    border-radius: 10px;
+}
+.list-group-item a {
+    color: #fff !important;
+}
+list-group-item:first-child, 
+list-group-item:last-child {
+    border-radius: 10px!important;
+    border-radius: 10px!important; 
+}

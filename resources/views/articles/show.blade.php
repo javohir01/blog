@@ -1,25 +1,29 @@
 @extends('layouts.app')
 @section('content')
-<div class="card mb-3">
-    <img src="{{ $article->cover }}" class="card-img-top" alt="cover">
+<div class="card mb-4 shadow-sm">
+    <img src="{{ $article->cover ?? 'https://placehold.co/600x400' }}" class="card-img-top" alt="{{ $article->title }}">
     <div class="card-body">
-        <h1>{{ $article->title }}</h1>
-        <div>
+        <h1 class="card-title">{{ $article->title }}</h1>
+        <div class="mb-3">
             @foreach($article->tags as $tag)
                 <span class="badge badge-info">{{ $tag->name }}</span>
             @endforeach
         </div>
-        <p class="mt-3">{{ $article->body }}</p>
-        <div class="d-flex align-items-center">
+        <p class="card-text">{{ $article->body }}</p>
+        <div class="d-flex align-items-center mb-3">
             <button id="like-btn" class="btn btn-outline-primary mr-2">
-                ❤ <span id="like-count">{{ $article->likes }}</span>
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><use xlink:href="#icon-heart"/></svg>
+                <span id="like-count">{{ $article->likes }}</span>
             </button>
-            <span class="mr-2">👁 <span id="view-count">{{ $article->views }}</span></span>
+            <span class="text-muted">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><use xlink:href="#icon-eye"/></svg>
+                <span id="view-count">{{ $article->views }}</span>
+            </span>
         </div>
     </div>
 </div>
-<h3>Комментарии</h3>
-<ul class="list-group mb-3">
+<h3 class="mb-3">Комментарии</h3>
+<ul class="list-group mb-4">
     @foreach($article->comments as $comment)
         <li class="list-group-item">
             <strong>{{ $comment->subject }}</strong><br>
@@ -38,7 +42,7 @@
             <label>Сообщение</label>
             <textarea name="body" class="form-control" required></textarea>
         </div>
-        <button class="btn btn-success">Отправить</button>
+        <button type="submit" class="btn btn-success">Отправить</button>
     </form>
 </div>
 @endsection
@@ -65,11 +69,11 @@ $(function() {
             url: '/api/articles/{{ $article->id }}/comments',
             method: 'POST',
             data: $(this).serialize(),
-            success: function() {
+            success: function(response) {
                 $('#comment-form-block').html('<div class="alert alert-success">Ваше сообщение успешно отправлено</div>');
             },
             error: function(xhr) {
-                alert('Ошибка: ' + xhr.responseJSON.message);
+                alert('Ошибка: ' + (xhr.responseJSON?.message || 'Неизвестная ошибка'));
             }
         });
     });

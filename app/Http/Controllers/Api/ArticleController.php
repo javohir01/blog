@@ -11,9 +11,15 @@ class ArticleController extends Controller
     public function like($id)
     {
         $article = Article::findOrFail($id);
-        // atomic increment
-        $newLikes = DB::table('articles')->where('id', $id)->increment('likes');
-        $article->refresh();
+        
+        DB::transaction(function () use ($article) {
+            if ($article->likes > 0) {
+                $article->update(['likes' => 0]);
+            } else {
+                $article->update(['likes' => 1]);
+            }
+        });
+
         return response()->json(['likes' => $article->likes]);
     }
 
@@ -22,6 +28,7 @@ class ArticleController extends Controller
         $article = Article::findOrFail($id);
         $newViews = DB::table('articles')->where('id', $id)->increment('views');
         $article->refresh();
+        $article->liked = session()->has('liked_article_'.$article->id);
         return response()->json(['views' => $article->views]);
     }
 }

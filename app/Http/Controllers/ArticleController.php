@@ -3,14 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
     public function index()
     {
-        $articles = Article::lifo()->paginate(10);
-        return view('articles.index', compact('articles'));
+        $tag = request()->query('tag');
+        $query = Article::lifo();
+
+        if ($tag) {
+            $query->whereHas('tags', function ($q) use ($tag) {
+                $q->where('name', $tag);
+            });
+        }
+        $tags = Tag::withCount('articles')->get();
+        $articles = $query->paginate(10);
+        return view('articles.index', compact('articles', 'tags'));
     }
 
     public function show($slug)

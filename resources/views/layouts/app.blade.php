@@ -39,7 +39,7 @@
                     icon.removeClass('bi-heart-fill text-danger').addClass('bi-heart');
                     btn.find('.badge').remove();
                 }
-                btn.find('.like-count').text(data.likes);
+                btn.find('.like-count').text(data.like);
             }
         });
     });

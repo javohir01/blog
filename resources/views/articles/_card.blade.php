@@ -21,12 +21,12 @@
                 <i class="bi bi-eye" style="font-size:18px;vertical-align:middle;"></i>
                 {{ $article->views }}
             </span>
-            <span class="like-btn {{ $article->likes ? 'liked' : '' }}" 
+            <span class="like-btn {{ $article->like ? 'liked' : '' }}" 
                 data-id="{{ $article->id }}" 
                 style="cursor:pointer;" 
                 title="Qiziqish bildirish"
             >
-                <i class="bi {{ $article->likes ? 'bi-heart-fill text-danger' : 'bi-heart' }}" style="font-size:18px;vertical-align:middle;transition:.2s;"></i>
+                <i class="bi {{ $article->like ? 'bi-heart-fill text-danger' : 'bi-heart' }}" style="font-size:18px;vertical-align:middle;transition:.2s;"></i>
             </span>
         </div>
     </div>

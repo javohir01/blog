@@ -13,14 +13,14 @@ class ArticleController extends Controller
         $article = Article::findOrFail($id);
         
         DB::transaction(function () use ($article) {
-            if ($article->likes > 0) {
-                $article->update(['likes' => 0]);
+            if ($article->like > 0) {
+                $article->update(['like' => 0]);
             } else {
-                $article->update(['likes' => 1]);
+                $article->update(['like' => 1]);
             }
         });
 
-        return response()->json(['likes' => $article->likes]);
+        return response()->json(['like' => $article->like]);
     }
 
     public function view($id)

@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    protected $fillable = ['title', 'slug', 'body', 'image', 'likes', 'views'];
+    protected $fillable = ['title', 'slug', 'body', 'image', 'like', 'views'];
 
     public function tags()
     {
@@ -19,7 +19,8 @@ class Article extends Model
 
     public function scopeLifo($query)
     {
-        return $query->orderByDesc('created_at');
+        return $query->orderBy('created_at', 'desc');
+        // return $query->orderByDesc('created_at');
     }
 
     public function getShortBodyAttribute()

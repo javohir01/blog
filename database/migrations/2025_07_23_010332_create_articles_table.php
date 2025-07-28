@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->string('image')->nullable();
             $table->string('status')->nullable(); 
-            $table->unsignedInteger('likes')->default(0);
+            $table->unsignedInteger('like')->default(0);
             $table->unsignedInteger('views')->default(0);
             $table->timestamp('deleted_at')->nullable();
             $table->timestamps();

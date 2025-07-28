@@ -17,7 +17,6 @@ class Article extends Model
         return $this->hasMany(Comment::class);
     }
 
-    // Scope for LIFO
     public function scopeLifo($query)
     {
         return $query->orderByDesc('created_at');

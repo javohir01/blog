@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container flex-between" >
-        <a class="navbar-brand" href="/">Успех</a>
+        <a class="navbar-brand" href="/">Tredium</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav">
                 <li class="nav-item {{ request()->is('/') ? 'active' : '' }}">

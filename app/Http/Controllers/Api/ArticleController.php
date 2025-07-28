@@ -28,7 +28,6 @@ class ArticleController extends Controller
         $article = Article::findOrFail($id);
         $newViews = DB::table('articles')->where('id', $id)->increment('views');
         $article->refresh();
-        $article->liked = session()->has('liked_article_'.$article->id);
         return response()->json(['views' => $article->views]);
     }
 }

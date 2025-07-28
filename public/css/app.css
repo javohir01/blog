@@ -14,14 +14,35 @@
     border-bottom: 2px solid #007bff; /* Ko'k rangli chiziq */
     color: #007bff !important;        /* Ixtiyoriy: matnni ham ko'k qilish */
 }
-body { background-color: #f0f2f5; }
-.navbar { background-color: #fff; }
-.card { border: none; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-.card-img-top { border-top-left-radius: 10px; border-top-right-radius: 10px; }
-.badge { margin-right: 5px; }
-.text-muted svg { margin-right: 5px; }
-.navbar-nav{display:flex; justify-content:end; width:100%}
-.intro{background: #e8ecef}
+body { 
+    background-color: #f0f2f5;
+}
+.navbar { 
+    background-color: #fff;
+}
+.card { 
+    border: none; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+}
+.card-img-top { 
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px; 
+}
+.badge { 
+    margin-right: 5px; 
+}
+.text-muted svg { 
+    margin-right: 5px; 
+}
+.navbar-nav{
+    display:flex; 
+    justify-content:end; 
+    width:100%
+}
+.intro{
+    background: #e8ecef
+}
 .like-btn.liked svg {
     stroke: #e74c3c;
     fill: #e74c3c;
@@ -38,17 +59,6 @@ body { background-color: #f0f2f5; }
 .like-btn .bi-heart-fill {
     color: #e74c3c;
 }
-/* .page-link {
-    font-size: 1rem;
-    padding: 0.5rem 0.9rem;
-    line-height: 1.25;
-}
-.page-item .page-link svg {
-    width: 1em !important;
-    height: 1em !important;
-    vertical-align: middle;
-} */
-
 .list-group{
     display: flex;
     flex-wrap: wrap;
@@ -57,13 +67,18 @@ body { background-color: #f0f2f5; }
 }
 .list-group-item{
     background-color: #6c757d;
-    border-radius: 10px;
+    border-radius: 10px !important;
+    padding: 0.4rem 0.8rem !important;
 }
 .list-group-item a {
     color: #fff !important;
 }
-list-group-item:first-child, 
-list-group-item:last-child {
-    border-radius: 10px!important;
-    border-radius: 10px!important; 
+.article-show .list-group-item {
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    margin-bottom: 10px;
+}
+.article-show .list-group-item .rounded-circle {
+    font-weight: bold;
+    background: #6c757d;
 }

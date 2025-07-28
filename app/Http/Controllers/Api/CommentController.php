@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Article;
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use App\Jobs\ProcessComment;
 
 class CommentController extends Controller
 {
@@ -15,21 +16,8 @@ class CommentController extends Controller
             'body' => 'required',
         ]);
 
-        // Ответ сразу
-        response()->json(['status' => 'ok'])->send();
+        ProcessComment::dispatch($articleId, $validated);
 
-        // Фоновая обработка (имитация)
-        ignore_user_abort(true);
-        ob_end_flush();
-        flush();
-
-        sleep(600); // имитация долгой операции
-
-        Comment::create([
-            'article_id' => $articleId,
-            'subject' => $validated['subject'],
-            'body' => $validated['body'],
-        ]);
-        exit;
+        return response()->json(['status' => 'ok'], 200);
     }
 }

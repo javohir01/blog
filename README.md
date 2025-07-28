@@ -5,7 +5,7 @@
 Bu loyiha — Laravel framework’da yozilgan, maqolalar katalogi va blog sahifalarini o‘z ichiga olgan test blog platformasi.  
 Frontend uchun Bootstrap ishlatilgan.  
 Backend — Laravel 7+ (PostgreSQL).  
-AJAX orqali like va ko‘rishlar soni, hamda kommentariylar ishlaydi.
+Like, ko‘rishlar soni, hamda kommentariylar AJAX orqali ishlaydi.
 ---
 
 ## Funksional imkoniyatlar
